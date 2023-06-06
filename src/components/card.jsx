@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import { FollowIcon } from './icons'
 
-const Card = ({ icon, title, description, actions, blockUser }) => {
+const Card = ({ icon, title, description,  blockUser }) => {
 
   const [ display, setDisplay ] = useState('hidden')
 
