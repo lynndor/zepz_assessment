@@ -3,8 +3,6 @@ import { useDispatch } from 'react-redux'
 import { Card, Search, SkeletonLoader } from '../../components'
 import { useGetUsersQuery } from '../api/apiSlice'
 
-
-
 export default function Users() {
   const {
     data: users,
@@ -18,11 +16,10 @@ export default function Users() {
 
   const [ isFollowing, setIsFollowing ] = useState( true )
 
-
   let content
 
   if( isLoading ) {
-    content = [1,2,3,4,5,6,7,8].map(id => <SkeletonLoader key={id}/>)
+    content = <SkeletonLoader/>
 
   } else if ( isSuccess ) {
     content = users.items.map((user) => (
@@ -37,8 +34,13 @@ export default function Users() {
   } else if (isError) {
     content = (
       <div>
-        { error.error.toString() }
-        { [1,2,3,4,5,6,7,8].map( id => <SkeletonLoader key={id}/> ) }
+        <p>
+          { error.error.toString() }
+        </p>
+
+        <div>
+          { <SkeletonLoader/> }
+        </div>
       </div>
     )
   }
