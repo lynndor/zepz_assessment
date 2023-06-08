@@ -6,12 +6,13 @@ const Card = ({ icon, title, description,  onBlockUser, onFollow, user, onUnfoll
   const [ display, setDisplay ] = useState('hidden')
 
   const toggleDisplay = () => {
-    if ( display === 'hidden') return setDisplay('block')
+    if ( display === 'hidden' && !user.isBlocked) return setDisplay('block')
     return setDisplay('hidden')
   }
 
   const handleBlockUser = e => {
     e.stopPropagation()
+    setDisplay('hidden')
     onBlockUser()
   }
 
@@ -26,8 +27,8 @@ const Card = ({ icon, title, description,  onBlockUser, onFollow, user, onUnfoll
   }
 
 	return (
-    <div onClick={ toggleDisplay } className={ `border-solid border border-purple-200 w-64 relative rounded-lg px-4 py-4 h-28` }>
-      <div className="flex">
+    <div onClick={ toggleDisplay } className={ `border-solid border border-purple-200 w-64 relative rounded-lg px-4 py-4 h-28 cursor-pointer` }>
+      <div className={`flex ${user.isBlocked && 'opacity-10' } `}>
         <img className="h-10 w-10 rounded-full border-solid border border-purple-400" src={ icon } alt="an icon displying the user face" />
 
         <div className="ml-3">
