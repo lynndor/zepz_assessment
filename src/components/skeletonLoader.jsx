@@ -4,7 +4,7 @@ const SkeletonLoader = () => (
   <div className="flex flex-row flex-wrap gap-x-1 gap-y-10 justify-center">
     {
       [1,2,3,4,5,6,7,8].map(id => (
-          <div key={id} className=" w-64 border border-purple-200 shadow rounded-md p-4 mx-auto">
+          <div key={id} className="w-64 border border-purple-200 shadow rounded-md p-4 mx-auto">
           <div className="animate-pulse flex space-x-4">
             <div className="rounded-full bg-gray-200 h-10 w-10"></div>
             <div className="flex-1 space-y-6 py-1">
