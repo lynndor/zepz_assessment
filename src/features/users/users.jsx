@@ -63,10 +63,11 @@ export default function Users() {
       ))
 
   } else if (isError) {
+    console.log()
     content = (
       <div>
         <p className="mb-8 p-2 border border-1 border-red-500 bg-red-100 text-red-700">
-          { error.data.error_message }
+          { error.error || error.data.error_message }
         </p>
 
         <div>
